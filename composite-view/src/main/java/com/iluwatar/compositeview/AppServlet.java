@@ -38,7 +38,6 @@ import java.io.PrintWriter;
  */
 
 public final class AppServlet extends HttpServlet {
-  private static final String CONTENT_TYPE = "text/html";
   private String msgPartOne = "<h1>This Server Doesn't Support";
   private String msgPartTwo = "Requests</h1>\n"
       + "<h2>Use a GET request with boolean values for the following parameters<h2>\n"
@@ -62,7 +61,7 @@ public final class AppServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest req, HttpServletResponse resp)
           throws ServletException, IOException {
-    resp.setContentType(CONTENT_TYPE);
+    resp.setContentType("text/html");
     try (PrintWriter out = resp.getWriter()) {
       out.println(msgPartOne + " Post " + msgPartTwo);
     }
@@ -72,7 +71,7 @@ public final class AppServlet extends HttpServlet {
   @Override
   public void doDelete(HttpServletRequest req, HttpServletResponse resp)
           throws ServletException, IOException {
-    resp.setContentType(CONTENT_TYPE);
+    resp.setContentType("text/html");
     try (PrintWriter out = resp.getWriter()) {
       out.println(msgPartOne + " Delete " + msgPartTwo);
     }
@@ -81,7 +80,7 @@ public final class AppServlet extends HttpServlet {
   @Override
   public void doPut(HttpServletRequest req, HttpServletResponse resp)
           throws ServletException, IOException {
-    resp.setContentType(CONTENT_TYPE);
+    resp.setContentType("text/html");
     try (PrintWriter out = resp.getWriter()) {
       out.println(msgPartOne + " Put " + msgPartTwo);
     }
